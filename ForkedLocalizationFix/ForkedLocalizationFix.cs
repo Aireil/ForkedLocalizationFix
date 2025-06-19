@@ -38,7 +38,7 @@ public sealed unsafe class ForkedLocalizationFix : IDalamudPlugin
 
     public void Dispose()
     {
-        this.resolveStringHook.Disable();
+        this.resolveStringHook?.Dispose();
     }
 
     [Signature("E8 ?? ?? ?? ?? 80 FB 12")]
