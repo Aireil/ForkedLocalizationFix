@@ -19,8 +19,6 @@ public sealed unsafe class ForkedLocalizationFix : IDalamudPlugin
 
     public ForkedLocalizationFix()
     {
-        GameInteropProvider.InitializeFromAttributes(this);
-
         var gameVersion = Framework.Instance()->GameVersionString;
         var luminaGameVersion = DataManager.GameData.Repositories["ffxiv"].Version;
         const string targetGameVersion = "2025.06.10.0000.0000";
@@ -29,6 +27,8 @@ public sealed unsafe class ForkedLocalizationFix : IDalamudPlugin
         {
             return;
         }
+
+        GameInteropProvider.InitializeFromAttributes(this);
 
         this.goodRowPtr = getActionIdRowPtr(41549);
         this.badRowPtr = getActionIdRowPtr(41547);
